@@ -1,0 +1,25 @@
+.letter-spacing-sm {
+  letter-spacing: 0.05rem;
+}
+
+.navbar-nav .nav-link {
+  position: relative;
+  padding-bottom: 5px;
+}
+
+.navbar-nav .nav-link::after {
+  content: '';
+  position: absolute;
+  width: 0;
+  height: 2px;
+  display: block;
+  margin-top: 5px;
+  right: 0;
+  background: royalblue;
+  transition: width 0.4s ease;
+}
+
+.navbar-nav .nav-link:hover::after,
+.navbar-nav .nav-link.active::after {
+  width: 100%;
+}

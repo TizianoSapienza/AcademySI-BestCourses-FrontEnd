@@ -1,0 +1,9 @@
+.jumbotron {
+  padding: 4rem 2rem;
+}
+
+.img-fluid {
+  max-width: 100%;
+  height: auto;
+  margin-bottom: 1rem;
+}

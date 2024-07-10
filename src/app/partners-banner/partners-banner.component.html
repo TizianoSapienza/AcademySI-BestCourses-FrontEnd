@@ -1,0 +1,11 @@
+<div class="jumbotron jumbotron-fluid bg-light text-dark">
+  <div class="container text-center">
+    <h2 class="display-4 mb-4" style="text-decoration: underline; text-decoration-color: royalblue; text-underline-offset: 4px; text-decoration-thickness: 2px;">I nostri partner</h2>
+    <p class="lead fs-2">Da anni siamo la prima scelta di aziende leader nei settori IT, Automotive, Healthcare e non solo!</p>
+    <div class="row">
+      <div class="col-6 col-md-4 col-lg-2 mb-4" *ngFor="let partner of partners">
+        <img [src]="partner.src" [alt]="partner.alt" class="img-fluid">
+      </div>
+    </div>
+  </div>
+</div>

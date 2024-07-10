@@ -1,0 +1,21 @@
+<div class="card mb-1 mt-5">
+  <img [src]="courseImage" class="card-img-top" style="height: 20rem; width: 100%; object-fit: cover" [alt]="courseTitle">
+  <div class="card-body">
+    <h5 class="card-title fw-bold" style="color: royalblue;">{{ courseTitle }}</h5>
+    <p class="card-text fw-semibold" [ngClass]="{ 'expanded': isExpanded, 'collapsed': !isExpanded }">
+      <ng-container *ngIf="isExpanded; else shortDescription">
+        {{ courseDescription }}
+      </ng-container>
+      <ng-template #shortDescription>
+        {{ courseDescription.slice(0, 100) + (courseDescription.length > 100 ? '...' : '') }}
+      </ng-template>
+    </p>
+    <div class="d-flex justify-content-between align-items-center mt-3">
+      <button class="btn btn-link p-0" (click)="toggleDescription()">
+        <ng-container *ngIf="isExpanded; else expandText">Comprimi</ng-container>
+        <ng-template #expandText>Espandi</ng-template>
+      </button>
+      <a href="#" class="btn btn-dark">Scopri di più</a>
+    </div>
+  </div>
+</div>

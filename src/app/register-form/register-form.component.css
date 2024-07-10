@@ -1,0 +1,16 @@
+.password-strength {
+  font-weight: bold;
+  margin-top: 0.5rem;
+}
+
+.password-strength.debole {
+  color: red;
+}
+
+.password-strength.moderata {
+  color: orange;
+}
+
+.password-strength.forte {
+  color: green;
+}
