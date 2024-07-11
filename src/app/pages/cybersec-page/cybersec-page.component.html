@@ -1,1 +1,14 @@
-<p>cybersec-page works!</p>
+<div class="container">
+  <div class="row my-5 mx-auto">
+    <div class="col-md-4 mb-4" *ngFor="let course of courses">
+      <div class="card h-100">
+        <img src="/assets/card4.avif">
+        <div class="card-body">
+          <h5 class="card-title fw-bold" style="color: royalblue;">{{ course.nomeCorso }}</h5>
+          <p class="card-text fw-semibold" style="width: 90%;">{{ course.descrizioneCompleta }}</p>
+          <a href="#" class="btn btn-dark">Dettagli</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

@@ -1,7 +1,6 @@
 import { Routes } from '@angular/router';
 import { LoginFormComponent } from './components/login-form/login-form.component';
 import { RegisterFormComponent } from './components/register-form/register-form.component';
-import { CourseGeneralComponent } from './components/course-general/course-general.component';
 import { HomePageComponent } from './pages/home-page/home-page.component';
 import { CoursesPageComponent } from './pages/courses-page/courses-page.component';
 import { FrontendPageComponent } from './pages/frontend-page/frontend-page.component';
