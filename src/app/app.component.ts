@@ -25,10 +25,7 @@ import { CorsoRegistrazioneDto } from '../model/dto/corsoRegistrazioneDto.model'
 export class AppComponent {
 
   constructor(private utenteService: UtenteService, private corsoService: CorsoService) {
-
-    let isLoginPage : boolean = false;
-    let isRegisterPage : boolean = false;
-    let isCoursePage : boolean = false;
+    
     //TEST UTENTI
 
     // this.utenteService.getUtenti().subscribe(result => {

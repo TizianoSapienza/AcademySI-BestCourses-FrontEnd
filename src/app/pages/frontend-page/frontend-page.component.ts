@@ -1,7 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { CorsoService } from '../../../services/corso/corso.service';
-import { Corso } from '../../../model/corso.model';
-import { CourseCardComponent } from "../../components/course-card/course-card.component";
+import { Corso } from '../../../model/sub-corso.model';
 import { CommonModule } from '@angular/common';
 import { ActivatedRoute, Router } from '@angular/router';
 import { CourseGeneralComponent } from "../../components/course-general/course-general.component";
