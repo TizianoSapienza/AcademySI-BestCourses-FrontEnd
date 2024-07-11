@@ -1,0 +1,68 @@
+<div class="container my-5">
+  <div class="row justify-content-center">
+    <div class="col-12 col-sm-8 col-md-6 col-lg-4">
+      <div class="card h-100" id="signin">
+        <div class="card-header bg-dark text-white">
+          <h3>Login</h3>
+        </div>
+        <div class="card-body">
+          <p>Inserisci la tua email e password per continuare il tuo percorso di apprendimento.</p>
+          <form #loginForm="ngForm" (ngSubmit)="onLogin(loginForm)">
+            <!-- Questo è l'elemento del form. L'#loginForm="ngForm" crea un riferimento al form. -->
+            <!-- L'evento (ngSubmit)="onLogin(loginForm)" chiama il metodo onLogin() quando il form viene inviato. -->
+            
+            <div class="form-group">
+              <label for="email">Indirizzo email</label>
+              <input   
+                type="email" 
+                id="email" 
+                name="email" 
+                class="form-control" 
+                required [(ngModel)]="signInRequest.email"
+                #email="ngModel">
+              <!-- Questo è l'input per l'email. L'evento (ngModel) crea un'associazione bidirezionale tra l'input e la proprietà signInRequest.email. -->
+              <!-- L'#email="ngModel" crea un riferimento all'input dell'email. -->
+              <div *ngIf="email.invalid && (email.dirty || email.touched)"
+                class="form-text text-danger">
+                Email non valida.
+              </div>
+            </div>
+            
+            <div class="form-group">
+              <label for="password">Password</label>
+              <input 
+                type="password" 
+                id="password" 
+                name="password" 
+                class="form-control" 
+                required
+                [(ngModel)]="signInRequest.password"
+                #password="ngModel"
+                minlength="6"
+                maxlength="20"
+                pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?=.*[@$!%*?&])^[A-Za-z\d@$!%*?&]{6,20}$">
+              <!-- Questo è l'input per la password. L'evento (ngModel) crea un'associazione bidirezionale tra l'input e la proprietà signInRequest.password. -->
+              <!-- L'#password="ngModel" crea un riferimento all'input della password. -->
+              <div *ngIf="password.invalid && (password.dirty || password.touched)" 
+              class="form-text text-danger">
+              Password non valida.
+              </div>
+            </div>
+            
+            <button 
+              type="submit" 
+              class="btn btn-dark btn-block mt-3" 
+              [disabled]="loginForm.invalid || loading">
+              <span *ngIf="loading" class="spinner-border spinner-border-sm" role="status" aria-hidden="true"></span>
+              <span *ngIf="!loading">Login</span>
+            </button>
+            
+            <div *ngIf="loginError" class="alert alert-danger mt-3">
+              {{ loginError }}
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

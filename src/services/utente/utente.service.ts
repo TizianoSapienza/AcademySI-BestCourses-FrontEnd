@@ -5,6 +5,8 @@ import { SignInRequest } from '../../interfaces/signIn-request';
 import { SignUpRequest } from '../../interfaces/signUp-request';
 import { UtenteDto } from '../../model/dto/utenteDto.model';
 import { environment } from '../../environments/environment';
+import { SignInResponse } from '../../interfaces/signIn-response';
+import { LocalStorageService } from '../localStorage/local-storage-service.service';
 
 
 @Injectable({
@@ -15,10 +17,13 @@ export class UtenteService {
   private userEmailSubject: BehaviorSubject<string | null> = new BehaviorSubject<string | null>(null);
   userEmail$: Observable<string | null> = this.userEmailSubject.asObservable();
 
-  private apiUrl = environment.apiUrl; // Base API URL from environment configuration
+  private apiUrl = environment.apiUrl;
+  
 
-  constructor(private http: HttpClient) {}
-
+  constructor(private http: HttpClient, private localStorageService: LocalStorageService) {
+    this.userEmailSubject.next(this.localStorageService.getItem('userEmail'));
+  }
+  
   SignUpUtente(utente: SignUpRequest): Observable<SignUpRequest> {
     const headers = { 'content-type': 'application/json' };
     return this.http.post<SignUpRequest>(`${this.apiUrl}/utenti/registrazione`, utente, { headers }).pipe(
@@ -27,9 +32,9 @@ export class UtenteService {
     );
   }
 
-  SignInUtente(utente: SignInRequest): Observable<SignInRequest> {
+  SignInUtente(utente: SignInRequest): Observable<SignInResponse> {
     const headers = { 'content-type': 'application/json' };
-    return this.http.post<SignInRequest>(`${this.apiUrl}/utenti/login`, utente, { headers }).pipe(
+    return this.http.post<SignInResponse>(`${this.apiUrl}/utenti/login`, utente, { headers }).pipe(
       retry(2),
       catchError(this.handleError)
     );
