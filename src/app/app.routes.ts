@@ -10,14 +10,14 @@ import { CybersecPageComponent } from './pages/cybersec-page/cybersec-page.compo
 
 export const routes: Routes = [
   {path: '', component: HomePageComponent},
-  {path: 'login', component: LoginFormComponent},
-  {path: 'register', component: RegisterFormComponent},
-  {path: 'courses', component: CoursesPageComponent,
+  {path: 'login', component: LoginFormComponent, title: 'BestCourses | Login'},
+  {path: 'register', component: RegisterFormComponent, title: 'BestCourses | Register'},
+  {path: 'courses', component: CoursesPageComponent, title: 'BestCourses | Courses',
     children: [
-    {path: 'frontend', component: FrontendPageComponent},
-    {path: 'backend', component: BackendPageComponent},
-    {path: 'fullstack', component: FullstackPageComponent},
-    {path: 'cybersec', component: CybersecPageComponent},
+    {path: 'frontend', component: FrontendPageComponent, title: 'BestCourses | Frontend'},
+    {path: 'backend', component: BackendPageComponent, title: 'BestCourses | Backend'},
+    {path: 'fullstack', component: FullstackPageComponent, title: 'BestCourses | Fullstack'},
+    {path: 'cybersec', component: CybersecPageComponent, title: 'BestCourses | Cybersec'},
     ]
   }
 ];
