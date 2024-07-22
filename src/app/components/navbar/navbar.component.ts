@@ -16,7 +16,7 @@ export class NavbarComponent implements OnInit {
 
   email: string | null = null;
 
-  constructor( private utenteService: UtenteService) {}
+  constructor(private utenteService: UtenteService) {}
 
   ngOnInit(): void {
     // Sottoscrive la funzione getUserEmail() del UtenteService
